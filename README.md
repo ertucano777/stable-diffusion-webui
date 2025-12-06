@@ -104,6 +104,31 @@ Alternatively, use online services (like Google Colab):
 
 - [List of Online Services](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Online-Services)
 
+### Local bootstrap script (Linux/macOS)
+For a minimal local setup that mirrors the manual steps, run:
+
+```bash
+bash scripts/bootstrap_webui.sh
+```
+
+The script will:
+- create (or reuse) a virtual environment in `./venv`;
+- install dependencies from `requirements.txt` and `requirements_versions.txt` (when present);
+- optionally download a checkpoint when you provide `MODEL_URL` (for example, a Stable Diffusion `.ckpt` or `.safetensors` link);
+- optionally launch a smoke test of `webui.py` when you set `RUN_WEBUI=1`.
+
+You can override defaults, for example:
+
+```bash
+PYTHON_BIN=python3.10 \
+MODEL_URL="https://example.com/sd-v1-4.ckpt" \
+MODEL_FILENAME="sd-v1-4.ckpt" \
+RUN_WEBUI=1 \
+bash scripts/bootstrap_webui.sh
+```
+
+Models are stored under `models/Stable-diffusion/` by default. After bootstrapping, activate the environment with `source venv/bin/activate` and start the UI with `python webui.py`.
+
 ### Installation on Windows 10/11 with NVidia-GPUs using release package
 1. Download `sd.webui.zip` from [v1.0.0-pre](https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/tag/v1.0.0-pre) and extract its contents.
 2. Run `update.bat`.
