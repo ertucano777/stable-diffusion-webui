@@ -113,7 +113,6 @@ bash scripts/bootstrap_webui.sh
 
 The script will:
 - create (or reuse) a virtual environment in `./venv`;
-- clone required auxiliary repositories into `./repositories/` (Stable Diffusion, taming-transformers, k-diffusion, CodeFormer, BLIP, CLIP, SDXL generative-models);
 - install dependencies from `requirements.txt` and `requirements_versions.txt` (when present);
 - optionally download a checkpoint when you provide `MODEL_URL` (for example, a Stable Diffusion `.ckpt` or `.safetensors` link);
 - optionally launch a smoke test of `webui.py` when you set `RUN_WEBUI=1`.
